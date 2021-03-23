@@ -5,7 +5,7 @@ export const Container = styled.div`
 
   table {
     width:100%;
-    border-spacing: 0.5rem;
+    border-spacing:0 0.5rem;
 
     th {
       color: var(--text-body);
@@ -21,6 +21,19 @@ export const Container = styled.div`
       background: var(--shape);
       font-weight: normal;
       color: var(--text-body);
+      border-radius:0.25rem;
+
+      &:first-child {
+        color: var(--text-title);
+      }
+
+      &.deposit {
+        color: var(--green);
+      }
+
+      &.withdraw {
+        color: var(--red);
+      }
     }
   }
 `
