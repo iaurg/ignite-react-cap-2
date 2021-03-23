@@ -1,7 +1,12 @@
+import { useState } from "react";
+import { createServer } from "miragejs"
+import Modal from 'react-modal'
 import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
-import { createServer } from "miragejs"
 import { GlobalStyle } from "./styles/global";
+
+// Acessibilidade do modal
+Modal.setAppElement('#root')
 
 createServer({
   routes(){
@@ -20,10 +25,29 @@ createServer({
 })
 
 export function App() {
+  const [isModalOpen, setIsModalOpen] = useState(false)
+
+  function handleOpenModal() {
+    setIsModalOpen(true)
+  }
+
+  function handleCloseModal() {
+    setIsModalOpen(false)
+  }
+  
   return (
     <>
       <GlobalStyle />
-      <Header />
+
+      <Header onOpenNewTransactionModal={handleOpenModal} />
+      
+      <Modal 
+        isOpen={isModalOpen} 
+        onRequestClose={handleCloseModal}
+      >
+        <h2>Cadastrar transação</h2>
+      </Modal>
+
       <Dashboard />
     </>
   );
