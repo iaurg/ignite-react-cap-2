@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createServer, Model } from "miragejs"
 import Modal from 'react-modal'
 import { Dashboard } from "./components/Dashboard";
 import { Header } from "./components/Header";
 import { GlobalStyle } from "./styles/global";
 import { NewTransactionModal } from "./components/NewTransactionModal";
-import { TransactionsProvider } from "./TransactionsContext";
+import { TransactionsProvider } from "./hooks/useTransactions";
 
 // Acessibilidade do modal
 Modal.setAppElement('#root')
